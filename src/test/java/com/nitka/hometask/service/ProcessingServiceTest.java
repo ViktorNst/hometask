@@ -11,7 +11,7 @@ class ProcessingServiceTest {
     ProcessingService processingService = new ProcessingService();
 
     @Test
-    public void smokeTest() {
+    public void smokeTest() throws InterruptedException {
         String data = "B|0|B-00\n" +
                 "A|0|A-00\n" +
                 "C|0|C-00\n" +
@@ -23,5 +23,6 @@ class ProcessingServiceTest {
 
         InputStream inputStream = new ByteArrayInputStream(data.getBytes());
         processingService.process(inputStream, "test.txt", 3);
+        Thread.sleep(50);
     }
 }
